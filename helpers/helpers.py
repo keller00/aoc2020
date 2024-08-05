@@ -21,7 +21,7 @@ def read_file(s: str) -> str:
 
 
 @contextlib.contextmanager
-def timing(name: str = '') -> Generator[None, None, None]:
+def timing(name: str = '') -> Generator[None]:
     before = time.time()
     try:
         yield
@@ -155,14 +155,14 @@ def submit_25_pt2() -> int:
         return 1
 
 
-def adjacent_4(x: int, y: int) -> Generator[tuple[int, int], None, None]:
+def adjacent_4(x: int, y: int) -> Generator[tuple[int, int]]:
     yield x, y - 1
     yield x + 1, y
     yield x, y + 1
     yield x - 1, y
 
 
-def adjacent_8(x: int, y: int) -> Generator[tuple[int, int], None, None]:
+def adjacent_8(x: int, y: int) -> Generator[tuple[int, int]]:
     for y_d in (-1, 0, 1):
         for x_d in (-1, 0, 1):
             if y_d == x_d == 0:
